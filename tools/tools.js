@@ -28,3 +28,17 @@ export const subtractTool = tool(
     }),
   }
 );
+
+
+// Multiplication
+export const multiplyTool = tool(
+  async ({ a, b }) => `Result: ${a * b}`,
+  {
+    name: "multiplication",
+    description: "Multiplies two numbers",
+    schema: z.object({
+      a: z.number(),
+      b: z.number(),
+    }),
+  }
+);
