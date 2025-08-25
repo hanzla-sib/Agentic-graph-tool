@@ -24,16 +24,35 @@
 
 ## What the Code Does
 
-- **langcahin.js**  
-  This file sets up the main logic for the tool. It likely loads some modules, initializes the workflow, and may call functions from the `tools/` or `Workflow/` folders.
+- **langchain.js**  
+  Entry point for the project. Sets up a simple agent using LangChain’s React agent and math tools (addition, subtraction, multiplication, division). Demonstrates invoking the agent with a sample math question.
 
 - **langraph.js**  
-  This script probably handles graph-related features, maybe visualizing or processing data from the workflow started in `langcahin.js`.
+  Handles graph-related features. Runs a workflow (imported from `Workflow/ai.js`), sends a user message, and logs the result. Useful for visualizing or processing data from the workflow.
 
 - **tools/tools.js**  
-  Contains helper functions or utilities used by the main scripts.
+  Contains helper functions and utilities, specifically math tools (add, subtract, multiply, divide) defined as LangChain tools with Zod schemas. These are used by the agent and workflow.
 
 - **Workflow/ai.js**  
-  Handles workflow logic, possibly related to AI or automation steps.
+  Implements a LangChain StateGraph workflow for tool-augmented conversations. Uses the Ollama LLM and the math tools from `tools/tools.js`. Manages tool execution and conversation state.
 
-You can look into each file for more details on what functions are being called and how the workflow
+- **Langraph_Demo/stateGraph.js**  
+  Demonstrates a simple StateGraph workflow with an agent node and a tool node. Shows how to invoke the workflow with sequential messages and maintain context between runs.
+
+- **Langraph_Demo/langraph.js**  
+  Demonstrates a React agent with a search tool (Tavily) and a multiply tool. Shows how to persist agent state between runs and invoke the agent with different messages.
+
+- **.env.example**  
+  Example environment file showing where to put your Tavily API key.
+
+- **.env**  
+  Actual environment file containing your Tavily API key.
+
+- **.gitignore**  
+  Specifies files and folders to ignore in git, such as `node_modules` and `.env`.
+
+- **package.json**  
+  Project metadata and dependencies for npm.
+
+- **README.md**  
+  Project overview, setup instructions, and file descriptions.
