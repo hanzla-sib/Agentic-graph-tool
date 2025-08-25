@@ -12,3 +12,12 @@ const model = new ChatOllama({
 });
 
 const toolExecutor = new ToolExecutor(tools); // this is tool executor to run the tools
+
+
+// --- Functions for the graph ---
+
+async function callModel(state) {
+  const userMessage = state.messages[state.messages.length - 1];
+  const response = await model.invoke([userMessage], { tools });
+  return { agentResponse: response };
+}
