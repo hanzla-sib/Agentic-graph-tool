@@ -42,3 +42,20 @@ export const multiplyTool = tool(
     }),
   }
 );
+
+
+// Division
+export const divideTool = tool(
+  async ({ a, b }) => {
+    if (b === 0) return "Error: Cannot divide by zero!";
+    return `Result: ${a / b}`;
+  },
+  {
+    name: "division",
+    description: "Divides a by b",
+    schema: z.object({
+      a: z.number(),
+      b: z.number(),
+    }),
+  }
+);
