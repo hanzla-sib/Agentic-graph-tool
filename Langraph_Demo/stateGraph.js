@@ -38,7 +38,7 @@ async function callModel(state) {
   return { messages: [response] };
 }
 
-// Define a new graph
+// Define a new graphs
 const workflow = new StateGraph(MessagesAnnotation)
   .addNode("agent", callModel)
   .addEdge("__start__", "agent") // __start__ is a special name for the entrypoint
