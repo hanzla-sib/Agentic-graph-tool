@@ -59,3 +59,5 @@ export const divideTool = tool(
     }),
   }
 );
+
+export const tools = [addTool, subtractTool, multiplyTool, divideTool];
