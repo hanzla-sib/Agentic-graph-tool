@@ -15,3 +15,16 @@ export const addTool=tool(
         })
     }
 )
+
+// Subtraction
+export const subtractTool = tool(
+  async ({ a, b }) => `Result: ${a - b}`,
+  {
+    name: "subtraction",
+    description: "Subtracts b from a",
+    schema: z.object({
+      a: z.number(),
+      b: z.number(),
+    }),
+  }
+);
