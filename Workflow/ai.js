@@ -37,3 +37,12 @@ async function runTool(state) {
   }
   return {};
 }
+
+
+// Decision function
+function shouldContinue(state) {
+  if (state.agentResponse?.tool_calls?.length) {
+    return "tool"; // If LLM wants a tool, go to tool node
+  }
+  return "end"; // Otherwise finish
+}
