@@ -21,3 +21,19 @@ async function callModel(state) {
   const response = await model.invoke([userMessage], { tools });
   return { agentResponse: response };
 }
+
+
+// Node 2: If LLM requested a tool, run it
+async function runTool(state) {
+  const lastResponse = state.agentResponse;
+  if (lastResponse.tool_calls?.length) {
+    const toolCall = lastResponse.tool_calls[0];
+    const invocation = new ToolInvocation({
+      tool: toolCall.name,
+      toolInput: toolCall.args,
+    });
+    const result = await toolExecutor.invoke(invocation);
+    return { toolResult: result };
+  }
+  return {};
+}
