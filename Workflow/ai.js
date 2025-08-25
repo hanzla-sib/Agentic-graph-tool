@@ -46,3 +46,15 @@ function shouldContinue(state) {
   }
   return "end"; // Otherwise finish
 }
+
+
+// --- Build Graph ---
+export const workflow = new StateGraph()
+  .addNode("model", callModel)
+  .addNode("tool", runTool)
+  .setEntryPoint("model")
+  .addConditionalEdges("model", shouldContinue, {
+    tool: "tool",
+    end: END,
+  })
+  .addEdge("tool", "model"); // After tool use, go back to model
