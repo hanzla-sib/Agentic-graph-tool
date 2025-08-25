@@ -1,0 +1,27 @@
+{
+  "name": "agentic-graph-tool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanzla-sib/Agentic-graph-tool.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/hanzla-sib/Agentic-graph-tool/issues"
+  },
+  "homepage": "https://github.com/hanzla-sib/Agentic-graph-tool#readme",
+  "dependencies": {
+    "@langchain/core": "^0.3.72",
+    "@langchain/langgraph": "^0.4.6",
+    "@langchain/ollama": "^0.2.3",
+    "zod": "^3.25.76"
+  }
+}
